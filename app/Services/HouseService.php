@@ -4,11 +4,11 @@
 namespace App\Services;
 
 
-use App\Repositories\UserRepository;
+use App\Repositories\HouseRepository;
 
 class HouseService extends BaseService
 {
-    public function __construct(UserRepository $repo)
+    public function __construct(HouseRepository $repo)
     {
         $this->repo = $repo;
         $this->filter_fields = ['number' => ['type' => 'string'], 'address' => ['type' => 'string']];
