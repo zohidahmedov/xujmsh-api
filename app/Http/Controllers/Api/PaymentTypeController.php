@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\User\IndexRequest;
-use App\Http\Requests\User\StoreRequest;
-use App\Http\Requests\User\UpdateRequest;
-use App\Services\UserService;
+use App\Http\Requests\PaymentType\StoreRequest;
+use App\Services\PaymentTypeService;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class UserController extends Controller
+class PaymentTypeController extends Controller
 {
     protected $service;
 
-    public function __construct(UserService $service)
+    public function __construct(PaymentTypeService $service)
     {
         $this->service = $service;
     }
@@ -21,12 +20,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param IndexRequest $request
+     * @param Request $request
      * @return Response
      */
-    public function index(IndexRequest $request)
+    public function index(Request $request)
     {
-        $params = $request->validated();
+        $params = $request->all();
         $lists = $this->service->get($params);
         if($lists)
             return response()->successJson($lists);
@@ -65,11 +64,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateRequest  $request
+     * @param  StoreRequest  $request
      * @param  int  $id
      * @return Response
      */
-    public function update(UpdateRequest $request, int $id)
+    public function update(StoreRequest $request, int $id)
     {
         $params = $request->validated();
         $model = $this->service->update($params, $id);

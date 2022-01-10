@@ -19,7 +19,11 @@ class BaseService
     /**
      * @var
      */
-    protected $relation;
+    protected $listRelation;
+    /**
+     * @var
+     */
+    protected $showRelation;
     /**
      * @var
      */
@@ -42,7 +46,7 @@ class BaseService
     {
         $perPage = $params['per_page'] ?? 20;
         $query = $this->repo->getQuery();
-        $query = $this->relation($query, $this->relation);
+        $query = $this->relation($query, $this->listRelation);
         $query = $this->filter($query, $this->filter_fields, $params);
         $query = $this->sort($query, $params, $this->sort_fields);
         $query = $this->select($query, $this->attributes);
@@ -138,7 +142,13 @@ class BaseService
      */
     public function show($id)
     {
-        return $this->repo->getById($id);
+        $model = $this->repo->getById($id);
+        if($this->showRelation && count($this->showRelation)) {
+            foreach ($this->showRelation as $relation) {
+                $model->$relation;
+            }
+        }
+        return $model;
     }
 
     /**
@@ -146,7 +156,7 @@ class BaseService
      * @param $id
      * @return mixed
      */
-    public function edit($params, $id)
+    public function update($params, $id)
     {
         return $this->repo->update($params, $id);
 

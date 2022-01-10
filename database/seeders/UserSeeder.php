@@ -16,11 +16,11 @@ class UserSeeder extends Seeder
     {
         User::query()->updateOrCreate(
             [
-                'username' => 'admin'
+                'login' => 'admin'
             ],
             [
                 'name' => 'Admin',
-                'password' => 'admin12345'
+                'password' => 'xujmsh2022'
             ]
         );
 
