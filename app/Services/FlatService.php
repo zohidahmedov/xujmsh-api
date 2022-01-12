@@ -21,6 +21,4 @@ class FlatService extends BaseService
         $this->listRelation = ['house'];
         $this->showRelation = ['house'];
     }
-
-
 }

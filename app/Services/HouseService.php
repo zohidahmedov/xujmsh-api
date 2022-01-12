@@ -31,5 +31,4 @@ class HouseService extends BaseService
 
         return $model;
     }
-
 }
