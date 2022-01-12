@@ -10,6 +10,6 @@ class Service extends Model
 
     public function paymentTypes()
     {
-        $this->hasMany(PaymentType::class);
+        return $this->hasMany(PaymentType::class);
     }
 }
