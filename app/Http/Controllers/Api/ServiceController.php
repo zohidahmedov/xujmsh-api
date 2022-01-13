@@ -94,4 +94,19 @@ class ServiceController extends Controller
             return response()->errorJson('Object not found', 404);
         }
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function calculatingTypes()
+    {
+        $lists = $this->service->getCalculatingTypes();
+        if($lists)
+            return response()->successJson($lists);
+        else
+            return response()->errorJson('Object not found', 404);
+    }
 }

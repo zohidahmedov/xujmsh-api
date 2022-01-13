@@ -8,10 +8,6 @@ class PaymentType extends Model
 {
     protected $guarded = ['id'];
 
-    public function calculatingType()
-    {
-        return $this->belongsTo(CalculatingType::class);
-    }
     public function service()
     {
         return $this->belongsTo(Service::class);

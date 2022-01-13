@@ -25,7 +25,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'service_id' => 'required|numeric|exists:services,id',
-            'calculating_type_id' => 'required|numeric|exists:calculating_types,id',
             'name' => 'required',
             'amount' => 'required|numeric'
         ];
