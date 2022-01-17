@@ -18,7 +18,9 @@ class CreatePaymentTypesTable extends Migration
             $table->integer('service_id');
             $table->string('name');
             $table->double('amount');
+            $table->smallInteger('is_default')->default(0);
             $table->timestamps();
+            $table->unique(['service_id', 'amount']);
         });
     }
 

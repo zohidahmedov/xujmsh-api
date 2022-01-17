@@ -12,13 +12,13 @@ class HouseService extends BaseService
     {
         $this->repo = $repo;
         $this->filter_fields = ['number' => ['type' => 'string'], 'address' => ['type' => 'string']];
-        $this->listRelation = [];
+        $this->showRelation = ['paymentTypes'];
     }
     public function create($params)
     {
         $model = parent::create($params);
 
-        $model->paymentTypes()->attach($params['payment_types_ids']);
+        $model->paymentTypes()->sync($params['payment_types_ids']);
 
         return $model;
     }
@@ -30,5 +30,17 @@ class HouseService extends BaseService
         $model->paymentTypes()->sync($params['payment_types_ids']);
 
         return $model;
+    }
+    public function delete(int $id)
+    {
+        $model = $this->repo->getById($id);
+
+        if($model) {
+            $model->paymentTypes()->sync([]);
+            $model->delete();
+            return true;
+        } else {
+            return false;
+        }
     }
 }

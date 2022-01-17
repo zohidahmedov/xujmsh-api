@@ -25,7 +25,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'calculating_type_id' => 'required|numeric|exists:calculating_types,id'
+            'calculating_type_id' => 'required|numeric|exists:calculating_types,id',
+            'default_amount' => 'required|numeric',
         ];
     }
 }

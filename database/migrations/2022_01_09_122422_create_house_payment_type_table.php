@@ -16,6 +16,8 @@ class CreateHousePaymentTypeTable extends Migration
         Schema::create('house_payment_type', function (Blueprint $table) {
             $table->integer('house_id');
             $table->integer('payment_type_id');
+
+            $table->unique(['house_id', 'payment_type_id']);
         });
     }
 

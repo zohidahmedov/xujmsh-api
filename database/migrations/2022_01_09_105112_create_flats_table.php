@@ -23,6 +23,7 @@ class CreateFlatsTable extends Migration
             $table->integer('members_count');
             $table->float('area');
             $table->timestamps();
+            $table->unique(['house_id', 'number']);
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\PaymentType;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 class StoreRequest extends FormRequest
 {

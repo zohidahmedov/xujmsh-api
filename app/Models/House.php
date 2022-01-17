@@ -10,6 +10,6 @@ class House extends Model
 
     public function paymentTypes()
     {
-        $this->belongsToMany(PaymentType::class);
+        return $this->belongsToMany(PaymentType::class);
     }
 }
