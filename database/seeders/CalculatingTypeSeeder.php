@@ -17,7 +17,7 @@ class CalculatingTypeSeeder extends Seeder
         $calculatingTypes = [
           ['name' => 'people_count', 'description' => 'Kvartirada yashovchi odamlar soniga qarab hisoblash'],
           ['name' => 'area', 'description' => 'Umumiy foydalanish maydoniga qarab hisoblash'],
-          ['name' => 'spent_count', 'description' => 'Sarflangan miqdorga qarab hisoblash']
+          ['name' => 'spent_amount', 'description' => 'Sarflangan miqdorga qarab hisoblash']
         ];
 
         foreach ($calculatingTypes as $calculatingType) {
