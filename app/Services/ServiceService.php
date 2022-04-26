@@ -16,19 +16,12 @@ class ServiceService extends BaseService
         $this->filter_fields = [
             'name' => ['type' => 'string'], 'calculating_type_id' => ['type' => 'number']
         ];
-        $this->listRelation = ['paymentTypes', 'calculatingType'];
-        $this->showRelation = ['paymentTypes', 'calculatingType'];
+        $this->listRelation = ['paymentTypes', 'calculatingType', 'defaultPaymentType'];
+        $this->showRelation = ['paymentTypes', 'calculatingType', 'defaultPaymentType'];
     }
     public function getCalculatingTypes()
     {
         return CalculatingType::all();
-    }
-
-    public function show($id)
-    {
-        $model = parent::show($id);
-        $model->default_payment_type = $model->default_payment_type;
-        return $model;
     }
 
     public function create($params)

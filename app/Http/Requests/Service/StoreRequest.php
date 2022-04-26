@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|unique:services',
             'calculating_type_id' => 'required|numeric|exists:calculating_types,id',
             'default_amount' => 'required|numeric',
         ];

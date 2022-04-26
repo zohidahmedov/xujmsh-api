@@ -13,13 +13,4 @@ class ServiceRepository extends BaseRepository
     {
         $this->entity = $entity;
     }
-
-    public function getPaginate($query, int $perPage = null)
-    {
-        $data = parent::getPaginate($query, $perPage);
-         $data->each(function ($item) {
-             $item->append('default_payment_type');
-         });
-        return $data;
-    }
 }

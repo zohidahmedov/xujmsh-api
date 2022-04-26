@@ -17,8 +17,8 @@ class Service extends Model
     {
         return $this->hasMany(PaymentType::class);
     }
-    public function getDefaultPaymentTypeAttribute()
+    public function defaultPaymentType()
     {
-        return $this->paymentTypes()->where('is_default', 1)->first();
+        return $this->hasOne(PaymentType::class)->where('is_default', 1);
     }
 }
