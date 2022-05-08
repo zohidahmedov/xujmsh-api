@@ -18,6 +18,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'api', 'namespace' => 'Api'], fu
         Route::apiResource('payment-types', 'PaymentTypeController');
         Route::apiResource('services', 'ServiceController');
         Route::get('calculating-types', 'ServiceController@calculatingTypes');
+        Route::get('flat-service/{flat}', 'FlatController@service');
 
         Route::group(['prefix' => 'resources'], function () {
 
@@ -26,6 +27,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'api', 'namespace' => 'Api'], fu
     });
 
 });
+
 
 
 

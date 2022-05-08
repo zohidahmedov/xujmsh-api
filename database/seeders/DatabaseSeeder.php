@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
 //            UserSeeder::class,
 //            CalculatingTypeSeeder::class,
-//            ServiceSeeder::class,
-            ServiceAndPaymentTypeSeeder::class,
+            ServiceSeeder::class,
+//            ServiceAndPaymentTypeSeeder::class,
         ]);
     }
 }

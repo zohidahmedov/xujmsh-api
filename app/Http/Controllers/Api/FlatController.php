@@ -94,4 +94,12 @@ class FlatController extends Controller
             return response()->errorJson('Object not found', 404);
         }
     }
+    public function service(int $id)
+    {
+        $user = $this->service->service($id);
+        if($user)
+            return response()->successJson($user);
+        else
+            return response()->errorJson('Object not found', 404);
+    }
 }

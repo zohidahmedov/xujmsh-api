@@ -24,7 +24,6 @@ class AuthController extends Controller
      */
     public function login()
     {
-        dd('kllkl');
         $credentials = request(['login', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
