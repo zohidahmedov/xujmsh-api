@@ -13,11 +13,14 @@ class PaymentService extends BaseService
         $this->repo = $repo;
         $this->filter_fields = [
             'service_id' => ['type' => 'number'],
-            'name' => ['type' => 'string'],
             'amount' => ['type' => 'number']
         ];
         $this->listRelation = ['service'];
         $this->showRelation = ['service'];
+    }
+    public function create($params)
+    {
+        return $this->repo->store($params);
     }
 
 

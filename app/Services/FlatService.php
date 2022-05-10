@@ -27,12 +27,21 @@ class FlatService extends BaseService
         $model = $this->repo->getById($id);
         if($this->showRelation && count($this->showRelation)) {
             foreach ($this->showRelation as $relation) {
-                dd($model->house->paymentTypes);
-
-                $model->$relation;
+                return ($model->$relation->paymentTypes);
+                $model->$relation->paymentTypes;
             }
         }
-        dd('else');
+        return $model;
+    }
+
+    public function show($id)
+    {
+        $model = $this->repo->getById($id);
+        if($this->showRelation && count($this->showRelation)) {
+            foreach ($this->showRelation as $relation) {
+                $model->$relation->paymentTypes;
+            }
+        }
         return $model;
     }
 }

@@ -13,4 +13,8 @@ class PaymentRepository extends BaseRepository
     {
         $this->entity = $entity;
     }
+    public function store($params)
+    {
+        return $this->entity->create($params);
+    }
 }

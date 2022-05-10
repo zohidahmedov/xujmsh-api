@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Flat\StoreRequest;
-use App\Services\FlatService;
+use App\Http\Requests\Payment\StoreRequest;
+use App\Services\PaymentService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class FlatController extends Controller
+class PaymentController extends Controller
 {
     protected $service;
 
-    public function __construct(FlatService $service)
+    public function __construct(PaymentService $service)
     {
         $this->service = $service;
     }
@@ -41,6 +41,7 @@ class FlatController extends Controller
      */
     public function store(StoreRequest $request)
     {
+//        dd($request->all());
         $params = $request->validated();
         $model = $this->service->create($params);
         return response()->successJson($model);
@@ -94,14 +95,4 @@ class FlatController extends Controller
             return response()->errorJson('Object not found', 404);
         }
     }
-
-    public function service(int $id)
-    {
-        $user = $this->service->service($id);
-        if($user)
-            return response()->successJson($user);
-        else
-            return response()->errorJson('Object not found', 404);
-    }
-
 }

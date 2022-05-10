@@ -13,4 +13,10 @@ class FlatRepository extends BaseRepository
     {
         $this->entity = $entity;
     }
+
+    public function store($params)
+    {
+        dd($params);
+        return $this->entity->create($params);
+    }
 }
